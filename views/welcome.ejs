@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cluckers.css">
+    <title>BootCamp Quiz</title>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <% if(loggedInUser) {  %> 
+            <li class="nav-item">
+                <span class="navbar-text mr-2 text-success"><strong><%= loggedInUser %></strong></span>
+              </li>
+              <li class="nav-item">
+                <form action="/sign_out" method="POST" class="form-inline">
+                  <button class="btn btn-outline-dark">Sign Out</button>
+                </form>
+              </li>
+        <% } else {%> 
+            <a class="nav-item nav-link" href="/sign_in">Sign In</a>
+        <% }%>
+      </div>
+      <img src="/images/chicken.png" class="logo" alt="">
+</body>
+</html>

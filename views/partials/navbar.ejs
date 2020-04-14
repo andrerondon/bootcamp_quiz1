@@ -1,0 +1,20 @@
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <div class="login-container">
+    <form action="/action_page.php">
+      <% if(loggedInUser) {  %> 
+        <li class="nav-item">
+            <span class="navbar-text mr-2 text-success"><strong><%= loggedInUser %></strong></span>
+          </li>
+          <li class="nav-item">
+            <form action="/sign_out" method="POST" class="form-inline">
+              <button class="btn btn-outline-dark">Sign Out</button>
+            </form>
+          </li>
+    <% } else {%> 
+        <!-- <a class="nav-item nav-link" href="/sign_in">Sign In</a> -->
+        <input type="submit" href="/sign_in" value="Sign in" class="registerbtn">
+    <% }%>
+    </form>
+  </div>
+</div>
