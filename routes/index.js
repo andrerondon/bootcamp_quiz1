@@ -4,21 +4,20 @@ const express = require('express')
 
 const router = express.Router()
 
-router.get('/sing_in', (req, res) => {
-    res.render('users/singin')
+router.get('/sign_in', (req, res) => {
+    res.render('users/sign')
     // res.send('Your are login page')
 })
-router.post('/sing_in', (req, res) =>{
+router.post('/sign_in', (req, res) =>{
     const oneDay = 1000 * 60 * 60 * 24
     const params = req.body   // geting from url 
     res.cookie('username', params.full_name, {maxAge: oneDay})     // sending username as a cookie
-    res.send('You are Loged IN')
-
+    res.redirect('/users')
 })
 
-router.delete('/loggedout', (req, res) => {
-    res.clearCookie('username') // res.clearCookie will tell the browser to remove a cookie from it's store
-    res.send('logged out')
-  })
+router.post("/log_out", (req, res) => {
+    res.clearCookie('username'); // res.clearCookie will tell the browser to remove a cookie from it's store
+    res.redirect("/sign_in");
+});
 
 module.exports = router

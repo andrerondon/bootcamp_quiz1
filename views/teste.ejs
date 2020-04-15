@@ -1,0 +1,26 @@
+<%- include('./partials/header') %>
+
+<div class="container">
+    <h1>Clucks</h1>
+<% for(let cluckers of cluckers) { %> 
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="row featurette" >
+            <h3 class="card-title">
+                <img src="/images/chicken.png" class="logo" alt="">
+
+                <h6 class="card-title w-50 m-1"><%= cluckers.full_name%> • <%= client.timeAgo(cluckers.created_at) %></h6>
+              
+            </h3>
+        </div>
+        <p class="card-text"><%= cluckers.content %> </p>
+        <% if(cluckers.srcUrl) { %>
+            <img src="<%= cluckers.srcUrl %> " class="img-fluid" alt="Responsive image">
+        <% } %>  
+    </div>
+</div>
+<br>
+
+<% } %>
+
+<%- include('./partials/footer') %>
